@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :paints, except:[:delete] do
+  resources :paints, except:[:destroy] do
     resources :bookings, only: [:create]
     collection do
       get "my_paints"
