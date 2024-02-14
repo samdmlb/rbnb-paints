@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_14_113758) do
     t.datetime "updated_at", null: false
     t.index ["paint_id"], name: "index_bookings_on_paint_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
