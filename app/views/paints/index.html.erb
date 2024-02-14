@@ -1,0 +1,12 @@
+<h1>Paint Index ~ EN CONSTRUCTION</h1>
+<div class="container d-flex flex-wrap">
+
+<% @paints.each do |paint| %>
+  <p><%= paint.name %></p>
+  <p><%= paint.artist %></p>
+  <p><%= paint.year %></p>
+  <p><%= paint.movement %></p>
+  <p><%= paint.technique %></p>
+<% end %>
+
+</div>

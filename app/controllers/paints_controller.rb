@@ -14,10 +14,11 @@ class PaintsController < ApplicationController
 
   def create
     @paint = Paint.new(paint_params)
+    @paint.user = current_user
     if @paint.save
       redirect_to paint_path(@paint)
     else
-      render :new, status: :unprocessable_entity
+      render "new", status: :unprocessable_entity
     end
   end
 
