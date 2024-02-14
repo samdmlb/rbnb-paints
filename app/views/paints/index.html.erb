@@ -1,12 +1,36 @@
 <h1>Paint Index ~ EN CONSTRUCTION</h1>
-<div class="container d-flex flex-wrap">
+<%# <div class="container d-flex flex-wrap"> %>
+<div class="container cards-grid">
 
-<% @paints.each do |paint| %>
-  <p><%= paint.name %></p>
-  <p><%= paint.artist %></p>
-  <p><%= paint.year %></p>
-  <p><%= paint.movement %></p>
-  <p><%= paint.technique %></p>
-<% end %>
+  <% @paints.each do |paint| %>
 
+    <div class="card-paint-index">
+      <img src="/home/yolande/code/loussine/samdmlb/rbnb-paints/app/assets/images/Van_Gogh_-_Starry_Night.jpg" style="height: 300px"/>
+
+      <div class="text-on-card-index" >
+
+        <div class="margin-bottom-10">
+          <%# première ligne de la card %>
+          <div class="space-beetween">
+            <h2><%= paint.name %></h2>
+            <h2 id="absoluteYear"><%= paint.year %></h2>
+          </div>
+          <p><%= paint.artist %></p>
+          <p><%= paint.movement %></p>
+        </div>
+
+        <%# dernière ligne de la card %>
+        <%# <div class="space-beetween"> %>
+          <p class="strong" id="absolutePrice"><%= paint.price %> € par jour</p>
+          <p id="absoluteStatutDisponible">Disponible</p>
+        <%# </div> %>
+
+      </div>
+    </div>
+
+  <% end %>
 </div>
+
+
+
+  <%# <p><%= paint.technique %>
