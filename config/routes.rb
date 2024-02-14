@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     collection do
       get "my_paints"
     end
-  resources :bookings, only:[:index, :destroy]
   end
+  resources :bookings, only:[:index, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
