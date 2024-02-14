@@ -1,12 +1,31 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<div class="navbar navbar-expand-sm-lg navbar-light navbar-lewagon  ">
+   <div class="container-fluid row">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="col-4">
+       <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <% end %>
+      </div>
+
+   <div class="col-4 d-flex justify-content-evenly">
+        <button class="btn btn-primary rounded-pill px-4 ">Mes tableaux</button>
+        <button class="btn btn-primary rounded-pill px-4 mx-5">Mes réservations</button>
+        <button class="btn btn-primary rounded-pill px-4">Mes favoris</button>
+       </div>
+
+
+ <div class="col-4 d-flex justify-content-end">
+
+        <a href="change-later" class="pt-2">Proposer une peinture</a>
+
+        <button class="navbar-toggler rounded-pill d-flex ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+        <i class="fa-solid fa-user pt-1 px-2"></i>
+      </button>
+        </div>
+        </div>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -34,5 +53,6 @@
         <% end %>
       </ul>
     </div>
-  </div>
+
+
 </div>
