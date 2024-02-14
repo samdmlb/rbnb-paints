@@ -1,1 +1,8 @@
 <h1>Index des Bookings</h1>
+
+<% @bookings.each do |booking| %>
+<div>
+  <p>Tableau : <%= booking.paint[:name] %></p>
+  <p>Locataire : <%= booking.user[:email] %></p>
+</div>
+<% end %>
