@@ -1,8 +1,8 @@
 <%= simple_form_for @paint do |f| %>
   <%= f.input :name %>
   <%= f.input :artist %>
-  <%= f.input :movement %>
-  <%= f.input :technique %>
+  <%= f.input :movement, :collection => ["Impressionnisme", "Romantisme","Cubisme", "Art abstrait"]%>
+  <%= f.input :technique, :collection => ["Aquarelle", "Peinture à l'huile"] %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :year %>
