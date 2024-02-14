@@ -3,13 +3,15 @@ class BookingsController < ApplicationController
   before_action :set_paint, only: [:create]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.paint = @paint
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render "paints/show", status: :unprocessable_entity
     end
@@ -27,10 +29,10 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def set_paint
-    @booking = booking.find(params[:paint_id])
+    @paint = Paint.find(params[:paint_id])
   end
 end
