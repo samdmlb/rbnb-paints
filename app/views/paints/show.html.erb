@@ -21,7 +21,7 @@
               </picture>
             </div>
             <div class="d-block ms-3">
-              <h5 class="m-0"> <%= @paint.user.first_name %> </h5>
+              <h5 class="m-0"> <%= @paint.user[:first_name] + " " + @paint.user[:last_name] %> </h5>
               <h6 class="m-0">Galeriste depuis</h6>
             </div>
           </div>
@@ -39,6 +39,14 @@
           <div class="d-block mb-4">
             <h4>Technique</h4>
             <h6><%= @paint.technique %></h6>
+          </div>
+
+          <%# le current_user peut destroy la paint si elle lui appartient %>
+          <div>
+            <% if @paint.user == current_user %>
+              <%= link_to "Supprimer", paint_path(@paint),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
           </div>
         </div>
       </div>
