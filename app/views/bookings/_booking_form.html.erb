@@ -1,5 +1,12 @@
-<%= simple_form_for [@paint, @booking] do |f| %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.button :submit, 'Réserver', class: 'btn btn-primary' %>
-<% end %>
+<div class="card rounded p-4">
+  <%= simple_form_for [@paint, @booking] do |f| %>
+    <div class="d-flex justify-content-center">
+      <p><%= @paint.price %>€ par jour</p>
+    </div>
+    <%= f.input :start_date, as: :date %>
+    <%= f.input :end_date, as: :date %>
+    <div class="d-flex w-100 justify-content-center">
+    <%= f.button :submit, 'Réserver', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

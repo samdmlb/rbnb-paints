@@ -1,7 +1,53 @@
-<h1>Paint show ~ EN CONSTRUCTION</h1>
-<%= @paint.name %>
-<%= @paint.artist %>
-<%= @paint.year %>
-<%= @paint.movement %>
-<%= @paint.technique %>
-<%= render 'bookings/booking_form' %>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-img-top w-100 p-100">
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="d-block mb-4">
+        <h1 class="mb-0"> <%= @paint.name %></h1>
+        <h3><%= @paint.artist %></h3>
+
+        <div class="card w-50 rounded d-flex mt-4">
+          <div class="card-body d-flex p-1 ">
+            <div class="d-flex align-items-center ms-2">
+              <picture>
+                <source srcset="..." type="image/svg+xml">
+                <img src="..." class="avatar" alt="...">
+              </picture>
+            </div>
+            <div class="d-block ms-3">
+              <h5 class="m-0"> User </h5>
+              <h6 class="m-0">Galeriste depuis</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-block mt-4">
+          <div class="d-block mb-4">
+            <h4>Mouvement</h4>
+            <h6><%= @paint.movement %></h6>
+          </div>
+          <div class="d-block mb-4">
+            <h4>Année</h4>
+            <h6><%= @paint.year %></h6>
+          </div>
+          <div class="d-block mb-4">
+            <h4>Technique</h4>
+            <h6><%= @paint.technique %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="d-block">
+        <%= render 'bookings/booking_form' %>
+      </div>
+    </div>
+
+  </div>
+</div>
