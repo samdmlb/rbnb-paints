@@ -7,9 +7,14 @@
 
       <div class="card-paint-index">
 
-        <% if paint.photo.key %>
-          <%= cl_image_tag paint.photo.key, crop: :fill %>
-        <% end %>
+        <%# div de l'image %>
+        <div style="height: 200px">
+          <%= link_to paint_path(paint) do %>
+            <% if paint.photo.key %>
+              <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+            <% end %>
+          <% end %>
+        </div>
 
         <div class="text-on-card-index" >
 
