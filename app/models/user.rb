@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :paints
 
   validates :first_name, presence: true, length: { minimum: 2, maximum: 15 }
-  validates :last_name, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :last_name, presence: true, length: { minimum: 2, maximum: 15 }
 end

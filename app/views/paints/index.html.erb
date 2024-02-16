@@ -1,41 +1,43 @@
-
-<div class=container>
+<%# <div class="container d-flex flex-wrap"> %>
+<div class="col-11 mx-auto">
   <h4 class="margin-top-20 margin-bottom-20">Collection complètes des tableaux - Art Land Gallery</h4>
+  <div class="cards-grid">
 
 
-  <%# <div class="container d-flex flex-wrap"> %>
-  <div class="col-12 mx-auto">
-    <div class="cards-grid">
+    <% @paints.each do |paint| %>
 
-      <% @paints.each do |paint| %>
+      <div class="card-paint-index">
 
-        <div class="card-paint-index">
-
-          <% if paint.photo.key %>
-            <%= cl_image_tag paint.photo.key, crop: :fill %>
+        <%# div de l'image %>
+        <div style="height: 200px">
+          <%= link_to paint_path(paint) do %>
+            <% if paint.photo.key %>
+              <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+            <% end %>
           <% end %>
-
-          <div class="text-on-card-index" >
-
-              <%# première ligne de la card %>
-              <div class="w-100 space-beetween">
-                <h2><%= paint.name %></h2>
-                <h2><%= paint.year %></h2>
-              </div>
-
-              <p><%= paint.artist %></p>
-              <p><%= paint.movement %></p>
-
-              <%# dernière ligne de la card %>
-              <div class="w-100 space-beetween">
-                <p class="strong"><%= paint.price %> € par jour</p>
-                <p>Disponible</p>
-              </div>
-
-          </div>
         </div>
 
-      <% end %>
-    </div>
+        <div class="text-on-card-index" >
+
+          <%# première ligne de la card %>
+          <div class="w-100 space-beetween">
+            <h2><%= paint.name %></h2>
+            <h2><%= paint.year %></h2>
+          </div>
+
+          <p><%= paint.artist %></p>
+          <p><%= paint.movement %></p>
+
+          <%# dernière ligne de la card %>
+          <div class="w-100 space-beetween">
+            <p class="strong"><%= paint.price %> € par jour</p>
+            <p>Disponible</p>
+          </div>
+
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
+

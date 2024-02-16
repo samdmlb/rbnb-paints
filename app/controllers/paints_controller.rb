@@ -1,5 +1,5 @@
 class PaintsController < ApplicationController
-  before_action :set_paint, only: %i[show edit update]
+  before_action :set_paint, only: %i[show edit update destroy]
 
   def index
     @paints = Paint.all
@@ -33,6 +33,11 @@ class PaintsController < ApplicationController
 
   def my_paints
     @paints = Paint.where(user_id: current_user.id)
+  end
+
+  def destroy
+    @paint.destroy
+    redirect_to paints_path, status: :see_other
   end
 
   private
