@@ -4,5 +4,7 @@
 <div>
   <p>Tableau : <%= booking.paint[:name] %></p>
   <p>Locataire : <%= booking.user[:email] %></p>
+  <%= link_to "Annuler", booking_path(booking),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </div>
 <% end %>
