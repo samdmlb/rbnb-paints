@@ -3,7 +3,7 @@ class Paint < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
 
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length: { maximum: 40 }
   validates :artist, presence: true, length: { maximum: 30 }
   validates :movement, presence: true, inclusion: ["Impressionnisme", "Romantisme","Cubisme", "Art abstrait"]
   validates :technique, presence: true, inclusion: ["Aquarelle", "Peinture à l'huile"]

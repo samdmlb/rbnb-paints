@@ -1,8 +1,40 @@
-<h1>Mes peintures ~ EN CONSTRUCTION</h1>
-<% @paints.each do |paint| %>
-<%= paint.name %>
-<%= paint.artist %>
-<%= paint.year %>
-<%= paint.movement %>
-<%= paint.technique %>
-<% end %>
+
+<div class=container>
+  <h4 class="margin-top-20 margin-bottom-20">Mes peintures</h4>
+
+  <%# Grid %>
+  <div class="col-12 mx-auto">
+    <div class="cards-grid">
+
+      <% @paints.each do |paint| %>
+
+        <%# Card %>
+        <div class="card-paint-index">
+          <%# Photo Cloudinary ? %>
+          <% if paint.photo.key %>
+            <%= cl_image_tag paint.photo.key, crop: :fill %>
+          <% end %>
+
+          <div class="text-on-card-index" >
+
+            <%# première ligne de la card %>
+            <div class="w-100 space-beetween">
+              <h2><%= paint.name %></h2>
+              <h2><%= paint.year %></h2>
+            </div>
+
+            <p><%= paint.artist %></p>
+            <p><%= paint.movement %></p>
+
+            <%# dernière ligne de la card %>
+            <div class="w-100 space-beetween">
+              <p class="strong"><%= paint.price %> € par jour</p>
+              <p>Disponible</p>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
