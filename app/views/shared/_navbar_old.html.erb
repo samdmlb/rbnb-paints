@@ -1,0 +1,65 @@
+<div class="navbar navbar-expand-sm-lg navbar-light navbar-lewagon  ">
+   <div class="container-fluid row">
+
+      <div class="col-4 d-flex">
+       <%= link_to "/", class: "navbar-brand" do %>
+        <h3 class="m-0">Art Land</h3>
+      <% end %>
+      </div>
+
+   <div class="col-4 d-flex justify-content-evenly">
+        <%= button_to "Tableaux", paints_path, :class => "btn btn-primary rounded-pill px-4", :method => :get %>
+        <%= button_to "Mes tableaux", my_paints_paints_path, :class => "btn btn-primary rounded-pill px-4", :method => :get %>
+        <%= button_to "Mes réservations", bookings_path, :class => "btn btn-primary rounded-pill px-4", :method => :get %>
+        <%# En attendant la route, renvoie sur la home  %>
+
+       </div>
+
+
+ <div class="col-4 d-flex justify-content-end">
+
+      <div class="pt-2">
+        <%= link_to "Proposer une peinture", new_paint_path, class: 'text-decoration-none text-dark mx-2' %>
+      </div>
+
+        <button class="navbar-toggler rounded-pill d-flex ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+        <i class="fa-solid fa-user pt-1 px-2"></i>
+      </button>
+        </div>
+        </div>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
+          </li>
+            <li class="nav-item">
+            <%= link_to "Inscription",  new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+
+</div>
