@@ -5,23 +5,29 @@
     </div>
     <%= f.input :start_date, as: :date %>
     <%= f.input :end_date, as: :date %>
-    <div class="d-flex justify-content-center">
-      <div class="d-flex flex-column w-50 justify-content-center">
+
+      <div class="d-flex justify-content-center">
         <%= f.button :submit, 'Réserver', class: 'btn btn-primary' %>
-        <p class="text-center pt-4"><%= @paint.price %> * </p>
-        <p class="text-center">Frais d'envoi</p>
       </div>
-    </div>
+      <div>
+        <div class="d-flex justify-content-between mt-3">
+          <p class=""><%= @paint.price %>€ * <span id="number-of-days">1</span> jours</p>
+          <%= javascript_tag do %>
+            const paintPrice = <%= @paint.price.to_json %>;
+          <% end %><%=  %>
+          <p><span id="price-result"><%= @paint.price %></span>€</p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="">Frais d'envoi</p>
+          <p>200€</p>
+        </div>
+      </div>
       <div>
         <hr/ class="w-100">
       </div>
         <div class="d-flex justify-content-between">
-          <div>
           <p>Total</p>
-          </div>
-          <div>
-          à faire
-          </div>
+          <p><span id="price-total"><%= @paint.price + 200 %></span>€</p>
         </div>
     </div>
   <% end %>
