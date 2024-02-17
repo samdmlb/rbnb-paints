@@ -1,0 +1,21 @@
+.button-menu {
+  border: 1px solid #BBBBBB;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  width: 90px;
+  height: 47px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-menu i {
+  color: #777777;
+  margin: auto;
+  padding: 8px 0;
+}
+
+.button-menu:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
