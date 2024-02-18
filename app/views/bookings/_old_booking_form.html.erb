@@ -3,13 +3,12 @@
 
     <%# Prix par jour %>
     <div class="d-flex justify-content-center">
-      <h5><span id="paint-price"><%= @paint.price %></span>€ par jour</h5>
+      <h5><%= @paint.price %>€ par jour</h5>
     </div>
 
     <%# Formulaire des dates %>
     <%= f.input :start_date, as: :date %>
     <%= f.input :end_date, as: :date %>
-
 
     <%# Bouton réserver %>
     <div class="d-flex justify-content-center">
@@ -18,19 +17,14 @@
 
     <%# Calcul du prix par jours grace a javascript %>
     <div class="d-flex justify-content-between mt-3">
-      <p><%= @paint.price %>€ * <span id="number-of-days"></span> jours</p>
-      <p><span id="price-result"></span>€</p>
-    </div>
-
-    <%# Reduction %>
-    <div class="d-flex justify-content-between d-none" id="price-reduction-div">
-      <p>Réduction location longue durée</p>
-      <p class="text-success">-<span id="price-reduction"></span>€</p>
+      <%= javascript_tag do %>const paintPrice = <%= @paint.price.to_json %>;<% end %>
+      <p class=""><%= @paint.price %>€ * <span id="number-of-days">1</span> jours</p>
+      <p><span id="price-result"><%= @paint.price %></span>€</p>
     </div>
 
     <%# Frais d'envoi %>
     <div class="d-flex justify-content-between">
-      <p>Frais d'envoi</p>
+      <p class="">Frais d'envoi</p>
       <p>200€</p>
     </div>
 
@@ -39,15 +33,8 @@
     <%# Prix total %>
     <div class="d-flex justify-content-between">
       <p>Total</p>
-      <p><span id="price-total"></span>€</p>
+      <p><span id="price-total"><%= @paint.price + 200 %></span>€</p>
     </div>
 
-    <%# Fait passer le prix total dans @booking.total_price grace a JS%>
-    <div class="d-none">
-      <%= f.input :total_price, input_html: {id: 'price_value'} %>
-    </div>
   <% end %>
 </div>
-
-<%# link du fichier javascript %>
-<%= javascript_include_tag "lib/price_total" %>
