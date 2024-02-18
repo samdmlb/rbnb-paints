@@ -1,0 +1,16 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name,
+              label: 'Prénom',
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "given-name" }%>
+  <%= f.input :last_name,
+              label: 'Nom de famille',
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "family-name" }%>
+  <%= f.input :photo,
+              as: :file,
+              label: 'Choisir une photo' %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

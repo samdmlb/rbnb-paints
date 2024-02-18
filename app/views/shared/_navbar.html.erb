@@ -23,8 +23,8 @@
       <%# bouton menu %>
       <div data-action="click->toggle#fire" class="button-menu">
         <i class="fa-solid fa-bars" style="margin: 0 auto;"></i>
-        <% if user_signed_in? %> <%# a ajouter avatar user %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+        <% if user_signed_in? && current_user.photo.key %> <%# a ajouter avatar user %>
+          <%= cl_image_tag current_user.photo.key, class: 'avatar', crop: :thumb, gravity: :face %>
         <% else %>
           <i class="fa-solid fa-user"></i>
         <% end %>
@@ -40,6 +40,9 @@
               <%= link_to "Mes réservations", bookings_path %>
             </li>
             <hr>
+            <li>
+              <%= link_to "Mon profil", edit_user_path(current_user) %>
+            </li>
             <li>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %>
             </li>

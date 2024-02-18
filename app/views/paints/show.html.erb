@@ -12,20 +12,17 @@
         <h1 class="mb-0"> <%= @paint.name %></h1>
         <h3><%= @paint.artist %></h3>
 
-        <div class="card w-50 rounded d-flex mt-4">
-          <div class="card-body d-flex p-1 ">
-            <div class="d-flex align-items-center ms-2">
-              <picture>
-                <source srcset="..." type="image/svg+xml">
-                <img src="..." class="avatar" alt="...">
-              </picture>
-            </div>
-            <div class="d-block ms-3">
-              <h5 class="m-0"> <%= @paint.user[:first_name] + " " + @paint.user[:last_name] %> </h5>
-              <h6 class="m-0">Galeriste depuis</h6>
-            </div>
+        <div class="w-50 rounded d-flex mt-4">
+          <div class="">
+            <%= cl_image_tag current_user.photo.key, class: 'avatar-large', crop: :thumb, gravity: :face %>
+          </div>
+          <div class="mx-2">
+            <h5 class="m-0"> <%= @paint.user[:first_name] + " " + @paint.user[:last_name] %> </h5>
+            <h6 class="m-0">Galeriste depuis le <%= @paint.user[:created_at].strftime("%d/%m/%Y") %></h6>
           </div>
         </div>
+
+        <hr>
 
         <div class="d-block mt-4">
           <div class="d-block mb-4">
