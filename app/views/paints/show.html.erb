@@ -3,7 +3,7 @@
     <div class="col-6">
       <div class="card">
         <div class="card-img-top w-100 p-100">
-          <%= cl_image_tag @paint.photo.key, crop: :fill %>
+          <%= cl_image_tag @paint.photo.key, width: 634, height: 330, crop: :fill, gravity: :face %>
         </div>
       </div>
     </div>
@@ -34,8 +34,8 @@
           </div>
         </div>
       </div>
-
-    <div class="col-8">
+  <div class="row mt-4">
+    <div class="col-lg-8">
       <div class="d-block mb-4">
         <h1 class="mb-0"> <%= @paint.name %></h1>
         <h3><%= @paint.artist %></h3>
@@ -78,10 +78,11 @@
     </div>
 
     <div class="col-4">
-      <div class="d-block">
+      <div class="d-block shadow ">
         <%= render 'bookings/booking_form' %>
       </div>
     </div>
 
+  </div>
   </div>
 </div>
