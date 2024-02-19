@@ -1,15 +1,15 @@
 <%# <div class="container d-flex flex-wrap"> %>
 <div class="col-11 mx-auto">
-  <h4 class="margin-top-20 margin-bottom-20">Collection complètes des tableaux - Art Land Gallery</h4>
+  <h4 class="margin-top-20 margin-bottom-20">Collection complète des tableaux - Art Land Gallery</h4>
   <div class="cards-grid">
 
 
     <% @paints.each do |paint| %>
 
-      <div class="card-paint-index">
+      <div class="card-paint-index" style="border-radius: 20px">
 
         <%# div de l'image %>
-        <div style="height: 200px">
+        <div style="height: 300px">
           <%= link_to paint_path(paint) do %>
             <% if paint.photo.key %>
               <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>

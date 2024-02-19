@@ -3,15 +3,18 @@
     <%# Logo / Brand %>
     <div class="col-3 d-flex my-auto">
         <%= link_to "/", class: "navbar-brand" do %>
-          <h3 class="m-0">Art Land</h3>
+          <div class="d-flex justify-content-start align-items-center">
+            <%= image_tag(asset_path("Logo3d.png"), alt: "Logo", width: 50) %>
+            <h3 class="my-0 mx-2 brand-name">Art Land</h3>
+          </div>
         <% end %>
     </div>
 
     <%# Boutons %>
     <div class="col-6 d-flex justify-content-center my-auto">
-      <%= button_to "Tableaux", paints_path, :class => "btn btn-primary rounded-pill px-4", :method => :get %>
-      <%= button_to "Mes tableaux", my_paints_paints_path, :class => "btn btn-primary rounded-pill px-4 mx-3", :method => :get %>
-      <%= button_to "Mes réservations", bookings_path, :class => "btn btn-primary rounded-pill px-4", :method => :get %>
+      <%= button_to "Tableaux", paints_path, :class => "btn trois-button rounded-pill px-4#{' active' if current_page?(paints_path)}", :method => :get %>
+      <%= button_to "Mes tableaux", my_paints_paints_path, :class => "btn trois-button rounded-pill px-4 mx-3#{' active' if current_page?(my_paints_paints_path)}", :method => :get %>
+      <%= button_to "Mes réservations", bookings_path, :class => "btn trois-button rounded-pill px-4#{' active' if current_page?(bookings_path)}", :method => :get %>
     </div>
 
     <%# Lien paint/new et menu %>

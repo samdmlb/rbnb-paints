@@ -34,6 +34,7 @@
           </div>
         </div>
       </div>
+
   <div class="row mt-4">
     <div class="col-lg-8">
       <div class="d-block mb-4">
@@ -41,8 +42,12 @@
         <h3><%= @paint.artist %></h3>
 
         <div class="w-50 rounded d-flex mt-4">
-          <div class="">
-            <%= cl_image_tag current_user.photo.key, class: 'avatar-large', crop: :thumb, gravity: :face %>
+          <div class="d-flex avatar-large" style="font-size: 28px;">
+            <% if @paint.user.photo.key %>
+              <%= cl_image_tag @paint.user.photo.key, class: 'avatar-large', crop: :thumb, gravity: :face %>
+            <% else %>
+              <i class="fa-solid fa-user m-auto"></i>
+            <% end %>
           </div>
           <div class="mx-2">
             <h5 class="m-0"> <%= @paint.user[:first_name] + " " + @paint.user[:last_name] %> </h5>
@@ -77,7 +82,8 @@
       </div>
     </div>
 
-    <div class="col-4">
+
+    <div class="col-4 mt-5">
       <div class="d-block shadow ">
         <%= render 'bookings/booking_form' %>
       </div>
