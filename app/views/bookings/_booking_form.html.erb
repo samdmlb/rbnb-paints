@@ -1,18 +1,22 @@
-<div class="card rounded p-4 bg-white">
+<div class="card rounded p-4 bg-white" data-controller="booking-form">
   <%= simple_form_for [@paint, @booking] do |f| %>
 
     <%# Prix par jour %>
     <div class="d-flex justify-content-center">
-      <h5><span id="paint-price"><%= @paint.price %></span>€ par jour</h5>
+      <h5><span data-booking-form-target="paintPrice"><%= @paint.price %></span>€ par jour</h5>
     </div>
 
     <%# Formulaire des dates %>
     <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker",
+                                  action: "input->booking-form#price",
+                                  booking_form_target: "startForm" } } %>
     <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker",
+                                  action: "input->booking-form#price",
+                                  booking_form_target: "endForm" } } %>
 
     <%# Bouton réserver %>
     <div class="d-flex justify-content-center">
@@ -21,14 +25,14 @@
 
     <%# Calcul du prix par jours grace a javascript %>
     <div class="d-flex justify-content-between mt-3">
-      <p><%= @paint.price %>€ * <span id="number-of-days"></span> jours</p>
-      <p><span id="price-result"></span>€</p>
+      <p><%= @paint.price %>€ * <span data-booking-form-target="numberOfDays"></span> jours</p>
+      <p><span data-booking-form-target="priceResult"></span>€</p>
     </div>
 
     <%# Reduction %>
-    <div class="d-flex justify-content-between d-none" id="price-reduction-div">
+    <div class="d-flex justify-content-between d-none" data-booking-form-target="priceReductionDiv">
       <p>Réduction location longue durée</p>
-      <p class="text-success">-<span id="price-reduction"></span>€</p>
+      <p class="text-success">-<span data-booking-form-target="priceReduction"></span>€</p>
     </div>
 
     <%# Frais d'envoi %>
@@ -42,65 +46,12 @@
     <%# Prix total %>
     <div class="d-flex justify-content-between">
       <p>Total</p>
-      <p><span id="price-total"></span>€</p>
+      <p><span data-booking-form-target="priceTotal"></span>€</p>
     </div>
 
     <%# Fait passer le prix total dans @booking.total_price grace a JS%>
     <div class="d-none">
-      <%= f.input :total_price, input_html: {id: 'price_value'} %>
+      <%= f.input :total_price, input_html: { data: { booking_form_target: "priceValue" } } %>
     </div>
   <% end %>
 </div>
-
-<script>
-  (function () {
-
-    document.getElementById("booking_start_date").value = new Date().toISOString().split('T')[0]
-    document.getElementById("booking_end_date").value = new Date().toISOString().split('T')[0]
-
-    document.getElementById("booking_end_date").addEventListener("input", bookingPrices, false)
-    document.getElementById("booking_start_date").addEventListener("input", bookingPrices, false)
-
-    function bookingPrices() {
-      const endDateValue = document.getElementById("booking_end_date").value
-      const startDateValue = document.getElementById("booking_start_date").value
-      const startDate = new Date(startDateValue.split("-"))
-      const endDate = new Date(endDateValue.split("-"))
-      const differenceDate = Math.ceil(((endDate - startDate) / 86400000) + 1)
-
-      const numberDays = document.getElementById("number-of-days")
-      const paintPrice = document.getElementById("paint-price").innerText
-      const priceResult = document.getElementById("price-result")
-      const priceTotal = document.getElementById("price-total")
-      const priceReduction = document.getElementById("price-reduction")
-      const priceReductionDiv = document.getElementById("price-reduction-div")
-
-      if (endDate > startDate) {
-        numberDays.innerText = differenceDate
-        priceResult.innerText = differenceDate * paintPrice
-
-        if (differenceDate > 9) {
-          const priceReductionValue = Math.ceil(priceResult.innerText * 0.1)
-          priceReduction.innerText = priceReductionValue
-          priceReductionDiv.classList.remove("d-none")
-          priceTotal.innerText = (differenceDate * paintPrice) - priceReductionValue + 200
-        } else {
-          priceReduction.innerText = "0"
-          priceReductionDiv.classList.add("d-none")
-          priceTotal.innerText = (differenceDate * paintPrice) + 200
-        }
-
-      } else {
-        priceReduction.innerText = "0"
-        priceReductionDiv.classList.add("d-none")
-        numberDays.innerText = "1"
-        priceResult.innerText = paintPrice
-        priceTotal.innerText = parseFloat(paintPrice) + 200
-      }
-      document.getElementById('price_value').value = priceTotal.innerText
-    }
-
-    bookingPrices()
-
-  })();
-</script>
