@@ -19,3 +19,27 @@
 .button-menu:hover {
   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
+
+.trois-button {
+  background-color: transparent;
+  border: none;
+  color: $dark;
+}
+
+
+.trois-button:hover {
+  background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+  border: none;
+  color: $dark;
+}
+
+.trois-button.active {
+  background-color: transparent;
+  border: none;
+  color: $darker /* Changez la couleur du texte pour la classe active */
+}
+
+.trois-button.active:hover {
+  background: none;
+  color: $darker; /* Assurez-vous que la couleur reste inchangée */
+}
