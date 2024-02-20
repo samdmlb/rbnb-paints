@@ -24,9 +24,6 @@ class PaintsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     @paint.update(paint_params)
     redirect_to paint_path(@paint)
@@ -44,8 +41,7 @@ class PaintsController < ApplicationController
   private
 
   def paint_params
-    params.require(:paint).permit(:name, :artist, :movement, :technique,
-                                  :description, :price, :year, :photo)
+    params.require(:paint).permit(:name, :artist, :movement, :technique, :description, :price, :year, :photo)
   end
 
   def set_paint
