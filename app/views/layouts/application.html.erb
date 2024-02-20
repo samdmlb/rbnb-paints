@@ -13,7 +13,9 @@
 
   <body>
   <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
+  <div class="border-bottom fixed-top bg-light-subtle py-2 search-bar-mobile">
+    <%= render "shared/search_bar" %>
+  </div>>
   <div class="body-responsive">
     <%= yield %>
   </div>

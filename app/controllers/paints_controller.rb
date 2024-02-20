@@ -3,6 +3,7 @@ class PaintsController < ApplicationController
 
   def index
     @paints = Paint.all
+    @paints = Paint.global_search(params[:query]) if params[:query].present?
   end
 
   def show

@@ -6,10 +6,10 @@
 
     <% @paints.each do |paint| %>
 
-      <div class="card-paint-index">
+      <div class="card-paint-index" style="border-radius: 20px">
 
         <%# div de l'image %>
-        <div style="height: 200px">
+        <div style="height: 300px">
           <%= link_to paint_path(paint) do %>
             <% if paint.photo.attached? %>
               <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>

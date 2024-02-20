@@ -27,13 +27,13 @@
       <p class="m-0" style="font-size: 0.625rem">Favoris</p>
     </div>
 
-    <% if user_signed_in? %>
+    <% if current_user.present? %>
       <%= link_to edit_user_path(current_user), class: "text-decoration-none text-dark #{'active-nav-page' if current_page?(edit_user_path(current_user))}" do %>
-        <div class="text-center" style="width: 5em">
-          <i class="fa-regular fa-circle-user" style="font-size: 1.5rem"></i>
-          <p class="m-0" style="font-size: 0.625rem">Profil</p>
-        </div>
+      <div class="text-center" style="width: 5em">
+        <i class="fa-regular fa-circle-user" style="font-size: 1.5rem"></i>
+        <p class="m-0" style="font-size: 0.625rem">Profil</p>
+      </div>
       <% end %>
-    <% end %>
+     <% end %>
   </div>
 </div>

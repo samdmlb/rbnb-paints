@@ -16,8 +16,11 @@
     display: flex
   }
   .body-responsive {
-    margin-top: 25px;
+    margin-top: 85px;
     margin-bottom: 100px;
+  }
+  .search-bar-mobile {
+    display: flex;
   }
 }
 // Small devices (landscape phones, 576px and up)
@@ -38,8 +41,11 @@
     display: flex
   }
   .body-responsive {
-    margin-top: 25px;
+    margin-top: 85px;
     margin-bottom: 100px;
+  }
+  .search-bar-mobile {
+    display: flex;
   }
 }
 // Medium devices (tablets, 768px and up)
@@ -60,8 +66,11 @@
     display: none
   }
   .body-responsive {
-    margin-top: 100px;
+    margin-top: 140px;
     margin-bottom: 50px;
+  }
+  .search-bar-mobile {
+    display: none;
   }
 }
 // Large devices (desktops, 992px and up)
@@ -82,8 +91,11 @@
     display: none
   }
   .body-responsive {
-    margin-top: 100px;
+    margin-top: 140px;
     margin-bottom: 50px;
+  }
+  .search-bar-mobile {
+    display: none;
   }
 }
 // Extra large devices (large desktops, 1200px and up)
@@ -104,7 +116,10 @@
     display: none
   }
   .body-responsive {
-    margin-top: 100px;
+    margin-top: 140px;
     margin-bottom: 50px;
+  }
+  .search-bar-mobile {
+    display: none;
   }
 }
