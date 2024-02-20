@@ -1,0 +1,28 @@
+.search-field {
+  border-radius: 20px !important;
+}
+
+.search-loupe {
+  border-radius: 50%;
+  background-color: $dark;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+   font-size: 8px;
+}
+
+.search-loupe-icon {
+  color: white;
+}
+
+.search-loupe:hover {
+  background-color: #968878;
+}
+
+.search-field::placeholder {
+  color: #a89987;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
