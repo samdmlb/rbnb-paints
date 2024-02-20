@@ -1,7 +1,7 @@
-<div class="col-12 border-bottom">
+<div class="col-12 border-bottom fixed-top bg-light-subtle navbar-haut">
   <div class="col-11 mx-auto d-flex justify-content-between my-3">
     <%# Logo / Brand %>
-    <div class="col-3 d-flex my-auto">
+    <div class="d-flex my-auto logo-et-brand">
         <%= link_to "/", class: "navbar-brand" do %>
           <div class="d-flex justify-content-start align-items-center">
             <%= image_tag(asset_path("Logo3d.png"), alt: "Logo", width: 50) %>
@@ -11,17 +11,17 @@
     </div>
 
     <%# Boutons %>
-    <div class="col-6 d-flex justify-content-center my-auto">
+    <div class="d-flex justify-content-center my-auto">
       <%= button_to "Tableaux", paints_path, :class => "btn trois-button rounded-pill px-4#{' active' if current_page?(paints_path)}", :method => :get %>
       <%= button_to "Mes tableaux", my_paints_paints_path, :class => "btn trois-button rounded-pill px-4 mx-3#{' active' if current_page?(my_paints_paints_path)}", :method => :get %>
       <%= button_to "Mes réservations", bookings_path, :class => "btn trois-button rounded-pill px-4#{' active' if current_page?(bookings_path)}", :method => :get %>
     </div>
 
     <%# Lien paint/new et menu %>
-    <div data-controller="toggle" class="col-3 d-flex justify-content-end">
+    <div data-controller="toggle" class="d-flex justify-content-end">
       <%# lien vers new paint %>
-      <div class="my-auto mx-3">
-        <%= link_to "Proposer une peinture", new_paint_path, class: 'text-decoration-none text-dark' %>
+      <div class="my-auto mx-3 proposer-peinture">
+        <%= link_to "Ajouter une peinture", new_paint_path, class: 'text-decoration-none text-dark' %>
       </div>
       <%# bouton menu %>
       <div data-action="click->toggle#fire" class="button-menu">
@@ -41,6 +41,9 @@
             </li>
             <li>
               <%= link_to "Mes réservations", bookings_path %>
+            </li>
+            <li>
+              <%= link_to "Ajouter une peinture", new_paint_path %>
             </li>
             <hr>
             <li>

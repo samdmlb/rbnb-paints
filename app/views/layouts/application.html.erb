@@ -14,9 +14,10 @@
   <body>
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
-  <%= yield %>
+  <div class="body-responsive">
+    <%= yield %>
+  </div>
 
-
-
+  <%= render "shared/navbar_mobile" %>
   </body>
 </html>
