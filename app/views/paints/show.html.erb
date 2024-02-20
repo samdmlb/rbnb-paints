@@ -50,7 +50,7 @@
             <% end %>
           </div>
           <div class="mx-2">
-            <h5 class="m-0"> <%= @paint.user[:first_name] + " " + @paint.user[:last_name] %> </h5>
+            <h5 class="m-0"> <%= "#{@paint.user[:first_name]} #{@paint.user[:last_name]}" %> </h5>
             <h6 class="m-0">Galeriste depuis le <%= @paint.user[:created_at].strftime("%d/%m/%Y") %></h6>
           </div>
         </div>
@@ -81,14 +81,22 @@
         </div>
       </div>
     </div>
-
-
     <div class="col-4 mt-5">
-      <div class="d-block shadow ">
-        <%= render 'bookings/booking_form' %>
+      <div class="d-block shadow py-3">
+         <% if @paint.user == current_user %>
+          <div class="container d-flex justify-content-center">
+            <div class="row">
+              <div class="col">
+                <h2>Modifier votre peinture</h2>
+                <%= render 'form' %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <%= render 'bookings/booking_form' %>
+        <% end %>
       </div>
     </div>
-
   </div>
   </div>
 </div>
