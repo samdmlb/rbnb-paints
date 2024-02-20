@@ -1,11 +1,23 @@
-<h1>Index des Bookings</h1>
-
-<% @bookings.each do |booking| %>
-<div>
-  <p>Tableau : <%= booking.paint[:name] %></p>
-  <p>Locataire : <%= booking.user[:email] %></p>
-  <p>Prix : <%= booking.total_price %></p>
-  <%= link_to "Annuler", booking_path(booking),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<div class="col-11 mx-auto">
+  <h4 class="margin-top-20 margin-bottom-20">Mes réservations</h4>
+  <div class="cards-grid">
+    <% @bookings.each do |booking| %>
+      <div class="card-paint-index" style="border-radius: 20px">
+        <div style="height: 300px">
+          <%= link_to paint_path(booking.paint) do %>
+            <% if booking.paint.photo.attached? %>
+              <%= cl_image_tag booking.paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="text-on-card-index">
+          <h2><%= booking.paint.name %></h2>
+          <div class="w-100 space-between">
+            <p class="strong"><%= booking.total_price %> €</p>
+            <%= link_to "Annuler", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
