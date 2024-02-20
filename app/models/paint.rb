@@ -10,4 +10,11 @@ class Paint < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 10, less_than_or_equal_to: 999 }
   validates :year, presence: true,  numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: Date.current.year }
   validates :description, presence: true, length: { minimum: 15 }
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+                  against: %i[name artist movement technique],
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 end

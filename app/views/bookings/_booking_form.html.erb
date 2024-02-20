@@ -7,16 +7,23 @@
     </div>
 
     <%# Formulaire des dates %>
-    <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker",
-                                  action: "input->booking-form#price",
-                                  booking_form_target: "startForm" } } %>
-    <%= f.input :end_date,
-            as: :string,
-            input_html: { data: { controller: "datepicker",
-                                  action: "input->booking-form#price",
-                                  booking_form_target: "endForm" } } %>
+    <div class="d-flex">
+      <div class="col-6">
+        <%= f.input :start_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker",
+                                      action: "input->booking-form#price",
+                                      booking_form_target: "startForm" } } %>
+      </div>
+
+      <div class="col-6">
+        <%= f.input :end_date,
+                as: :string,
+                input_html: { data: { controller: "datepicker",
+                                      action: "input->booking-form#price",
+                                      booking_form_target: "endForm" } } %>
+      </div>
+    </div>
 
     <%# Bouton réserver %>
     <div class="d-flex justify-content-center">
