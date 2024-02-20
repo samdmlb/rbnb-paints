@@ -3,28 +3,108 @@
   .brand-name {
     display: none;
   }
+  .proposer-peinture {
+    display: none;
+  }
+  .logo-et-brand {
+    width: 90px;
+  }
+  .navbar-haut {
+    display: none;
+  }
+  .navbar-mobile {
+    display: flex
+  }
+  .body-responsive {
+    margin-top: 25px;
+    margin-bottom: 100px;
+  }
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .brand-name {
     display: none;
   }
+  .proposer-peinture {
+    display: none;
+  }
+  .logo-et-brand {
+    width: 90px;
+  }
+  .navbar-haut {
+    display: none;
+  }
+  .navbar-mobile {
+    display: flex
+  }
+  .body-responsive {
+    margin-top: 25px;
+    margin-bottom: 100px;
+  }
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .brand-name {
+    display: none;
+  }
+  .proposer-peinture {
+    display: none;
+  }
+  .logo-et-brand {
+    width: 90px;
+  }
+  .navbar-haut {
     display: flex;
+  }
+  .navbar-mobile {
+    display: none
+  }
+  .body-responsive {
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .brand-name {
+    display: none;
+  }
+  .proposer-peinture {
+    display: none;
+  }
+  .logo-et-brand {
+    width: 90px;
+  }
+  .navbar-haut {
     display: flex;
+  }
+  .navbar-mobile {
+    display: none
+  }
+  .body-responsive {
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
 }
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .brand-name {
     display: flex;
+  }
+  .proposer-peinture {
+    display: flex;
+  }
+  .logo-et-brand {
+    width: 284px;
+  }
+  .navbar-haut {
+    display: flex;
+  }
+  .navbar-mobile {
+    display: none
+  }
+  .body-responsive {
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
 }

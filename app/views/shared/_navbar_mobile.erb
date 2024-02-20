@@ -1,0 +1,37 @@
+<div class="col-12 border-top bg-light-subtle fixed-bottom navbar-mobile">
+  <div class="col-10 mx-auto my-3 d-flex justify-content-between">
+
+    <%= link_to paints_path, class: "text-decoration-none text-dark #{'active-nav-page' if current_page?(paints_path)}" do %>
+    <div class="text-center" style="width: 5em">
+      <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem"></i>
+      <p class="m-0" style="font-size: 0.625rem">Explorer</p>
+    </div>
+    <% end %>
+
+    <%= link_to my_paints_paints_path, class: "text-decoration-none text-dark #{'active-nav-page' if current_page?(my_paints_paints_path)}" do %>
+    <div class="text-center" style="width: 5em">
+      <i class="fa-regular fa-image" style="font-size: 1.5rem"></i>
+      <p class="m-0" style="font-size: 0.625rem">Mes tableaux</p>
+    </div>
+    <% end %>
+
+    <%= link_to bookings_path, class: "text-decoration-none text-dark #{'active-nav-page' if current_page?(bookings_path)}" do %>
+    <div class="text-center" style="width: 5em">
+      <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem"></i>
+      <p class="m-0" style="font-size: 0.625rem">Réservations</p>
+    </div>
+    <% end %>
+
+    <div class="text-center text-dark" style="width: 5em">
+      <i class="fa-regular fa-heart" style="font-size: 1.5rem"></i>
+      <p class="m-0" style="font-size: 0.625rem">Favoris</p>
+    </div>
+
+    <%= link_to edit_user_path(current_user), class: "text-decoration-none text-dark #{'active-nav-page' if current_page?(edit_user_path(current_user))}" do %>
+    <div class="text-center" style="width: 5em">
+      <i class="fa-regular fa-circle-user" style="font-size: 1.5rem"></i>
+      <p class="m-0" style="font-size: 0.625rem">Profil</p>
+    </div>
+    <% end %>
+  </div>
+</div>
