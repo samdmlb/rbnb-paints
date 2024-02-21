@@ -1,22 +1,27 @@
 <div class="col-11 mx-auto">
-  <div class="cards-grid">
-    <% @bookings.each do |booking| %>
-      <div class="card-paint-index" style="border-radius: 20px">
-        <div style="height: 300px">
-          <%= link_to paint_path(booking.paint) do %>
-            <% if booking.paint.photo.attached? %>
-              <%= cl_image_tag booking.paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+  <% if @bookings.empty? %>
+    <h1 class="text-center">Vous n'avez aucune réservation</h1>
+  <% else %>
+
+    <div class="cards-grid">
+      <% @bookings.each do |booking| %>
+        <div class="card-paint-index" style="border-radius: 20px">
+          <div style="height: 300px">
+            <%= link_to paint_path(booking.paint) do %>
+              <% if booking.paint.photo.attached? %>
+                <%= cl_image_tag booking.paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="text-on-card-index">
-          <h2><%= booking.paint.name %></h2>
-          <div class="w-100 space-between">
-            <p class="strong"><%= booking.total_price %> €</p>
-            <%= link_to "Annuler", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+          <div class="text-on-card-index">
+            <h2><%= booking.paint.name %></h2>
+            <div class="w-100 space-between">
+              <p class="strong"><%= booking.total_price %> €</p>
+              <%= link_to "Annuler", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
