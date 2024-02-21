@@ -3,21 +3,55 @@
 <div class="container">
   <h4 class="margin-top-20 margin-bottom-20">Trouvez le mouvement artistique qui vous convient</h4>
   <div class="cards-grid">
-    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-      <p class=white>Impressionnisme</p>
+    <%= link_to controller: "paints", query: "impressionism" do %>
+    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Claude_Monet%2C_Impression%2C_soleil_levant.jpg/300px-Claude_Monet%2C_Impression%2C_soleil_levant.jpg)">
+      <p class="white">Impressionnisme</p>
     </div>
-    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/522750585/fr/photo/collage-abstrait.jpg?s=1024x1024&w=is&k=20&c=BaV4F7n11liynkmYRsM53Od2MLHbc-rlOFOZzflI4l0=)">
-      <p class=white>Cubisme</p>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "cubism" do %>
+    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://galeriemontblanc.com/cdn/shop/articles/main_243758d5-e51c-4936-a175-24f0ea3983d2_720x.png?v=1676850351)">
+      <p class="white">Cubisme</p>
     </div>
-</div>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "renaissance" do %>
+    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.britannica.com/41/3341-050-825E2B57/The-Creation-of-Adam-ceiling-fresco-Sistine.jpg)">
+      <p class="white">Renaissance</p>
+    </div>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "surrealism" do %>
+    <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://articite.com/wp-content/uploads/2023/08/surrealisme.jpg)">
+      <p class="white">Surréalisme</p>
+    </div>
+    <% end %>
+  </div>
 
   <h4 class="margin-top-20 margin-bottom-20">Des artistes qui pourraient vous plaire</h4>
-    <div class="cards-grid">
-        <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1626243048488-f224f98c4784?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-          <p class=white>Van Gogh</p>
-        </div>
-        <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.cognac-art.com/img/uploads/2022/05/280138040-1167946707107106-7390168707877635124-n.jpg)">
-          <p class=white>Alain Beraud</p>
-        </div>
-    </div>
+  <div class="cards-grid">
+    <%= link_to controller: "paints", query: "vincent van gogh" do %>
+      <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ebayimg.com/images/g/e5oAAOSwBoBk8Yjo/s-l1200.webp)">
+        <p class="white">Vincent van Gogh</p>
+      </div>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "pablo picasso" do %>
+      <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.jimcdn.com/app/cms/image/transf/none/path/s33f4b296991f4cd1/image/i30810d9b442d098e/version/1555236131/pablo-picasso-autoportrait-%C3%A0-la-m%C3%A8che-1907.jpg)">
+        <p class="white">Pablo Picasso</p>
+      </div>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "claude monet" do %>
+      <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.guim.co.uk/img/media/e2fcf2ed452c1d4b3c94de9ec5c5c3290c3c4640/0_207_899_539/master/899.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=5a5642ccd97506f801aac03e826dc138)">
+        <p class="white">Claude Monet</p>
+      </div>
+    <% end %>
+
+    <%= link_to controller: "paints", query: "rembrandt" do %>
+      <div class="mouv-cards" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.museumtv.art/wp-content/uploads/2021/07/1280px-Rembrandt_Self-portrait_Mauritshuis.jpeg)">
+        <p class="white">Rembrandt</p>
+      </div>
+    <% end %>
+  </div>
 <div>
