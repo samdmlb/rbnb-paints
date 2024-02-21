@@ -180,8 +180,25 @@ paintings = [
   }
 ]
 
-mich = User.new(first_name: 'Michel', last_name: 'Collectionneur', email: 'mich.collec@gmail.com', password: 'password')
-mich.save
+puts "Cleaning Database..."
+
+Booking.destroy_all
+Paint.destroy_all
+User.destroy_all
+
+puts "Database cleaned!"
+
+puts "Creating Users..."
+
+mich = User.create(first_name: 'Michel', last_name: 'Collectionneur', email: 'mich.collec@gmail.com', password: 'password')
+henry = User.create(first_name: 'Henry', last_name: 'Collectionneur', email: 'henry.collec@gmail.com', password: 'password')
+jean = User.create(first_name: 'Jean', last_name: 'Collectionneur', email: 'jean.collec@gmail.com', password: 'password')
+charles = User.create(first_name: 'Charles', last_name: 'Collectionneur', email: 'charles.collec@gmail.com', password: 'password')
+user_array = [mich, henry, jean, charles]
+
+puts "#{User.count} Users created!"
+
+puts "Creating Paintings..."
 
 paintings.each do |painting|
   file = URI.parse(painting[:url]).open
@@ -192,7 +209,9 @@ paintings.each do |painting|
                     year: painting[:year],
                     price: painting[:price],
                     description: painting[:description],
-                    user_id: mich[:id])
+                    user_id: user_array.sample[:id])
   paint.photo.attach(io: file, filename: "#{painting[:name].delete(' ').downcase}.png", content_type: "image/png")
   paint.save
 end
+
+puts "#{Paint.count} Paintings created!"
