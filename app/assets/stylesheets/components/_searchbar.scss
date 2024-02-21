@@ -26,3 +26,7 @@
 input:focus::placeholder {
   color: transparent;
 }
+
+.btn-outline-dark:hover {
+  color: white !important;
+}
