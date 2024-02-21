@@ -1,40 +1,44 @@
-
 <div class="col-11 mx-auto">
-  <div class="cards-grid">
+  <% if @paints.empty? %>
+    <h1 class="text-center">Vous n'avez aucun tableau</h1>
+  <% else %>
 
-    <% @paints.each do |paint| %>
+    <div class="cards-grid">
 
-      <div class="card-paint-index" style="border-radius: 20px">
+      <% @paints.each do |paint| %>
 
-        <%# div de l'image %>
-        <div style="height: 300px">
-          <%= link_to paint_path(paint) do %>
-            <% if paint.photo.attached? %>
-              <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+        <div class="card-paint-index" style="border-radius: 20px">
+
+          <%# div de l'image %>
+          <div style="height: 300px">
+            <%= link_to paint_path(paint) do %>
+              <% if paint.photo.attached? %>
+                <%= cl_image_tag paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-
-        <div class="text-on-card-index" >
-
-          <%# première ligne de la card %>
-          <div class="w-100 space-beetween">
-            <h2><%= paint.name %></h2>
-            <h2><%= paint.year %></h2>
           </div>
 
-          <p><%= paint.artist %></p>
-          <p><%= paint.movement %></p>
+          <div class="text-on-card-index" >
 
-          <%# dernière ligne de la card %>
-          <div class="w-100 space-beetween">
-            <p class="strong"><%= paint.price %> € par jour</p>
-            <p>Disponible</p>
+            <%# première ligne de la card %>
+            <div class="w-100 space-beetween">
+              <h2><%= paint.name %></h2>
+              <h2><%= paint.year %></h2>
+            </div>
+
+            <p><%= paint.artist %></p>
+            <p><%= paint.movement %></p>
+
+            <%# dernière ligne de la card %>
+            <div class="w-100 space-beetween">
+              <p class="strong"><%= paint.price %> € par jour</p>
+              <p>Disponible</p>
+            </div>
+
           </div>
-
         </div>
-      </div>
 
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
