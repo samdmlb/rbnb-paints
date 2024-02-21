@@ -1,57 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-img-top w-100 p-100">
-          <%= cl_image_tag @paint.photo.key, width: 634, height: 330, crop: :fill, gravity: :face %>
-        </div>
-      </div>
-    </div>
-      <div class="col-3 d-block">
-        <div class="card w-100 h-50">
-          <div class="img-top ">
-          <%# autre photo ici %>
-          </div>
+<div class="mx-auto col-11">
+  <div class="d-flex col-12">
+        <%= cl_image_tag @paint.photo.key, crop: :fill, class: "mx-auto paint-show-img" %>
+  </div>
 
-        </div>
-            <div class="card w-100 h-50">
-          <div class="img-top ">
-          <%# autre photo ici %>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-3 d-block">
-        <div class="card w-100 h-50">
-          <div class="img-top ">
-          <%# autre photo ici %>
-          </div>
-
-        </div>
-            <div class="card w-100 h-50">
-          <div class="img-top ">
-          <%# autre photo ici %>
-          </div>
-        </div>
-      </div>
-
-  <div class="row mt-4">
-    <div class="col-lg-8">
-      <div class="d-block mb-4">
+  <div class="d-flex mt-4 justify-content-around row">
+    <div class="col-12 col-md-6 col-lg-5 col-xl-5 col-xxl-5">
+      <div class="mb-4">
         <h1 class="mb-0"> <%= @paint.name %></h1>
         <h3><%= @paint.artist %></h3>
 
-        <div class="w-50 rounded d-flex mt-4">
+        <hr>
+
+        <div class="rounded d-flex mt-4">
           <div class="d-flex avatar-large" style="font-size: 28px;">
             <% if @paint.user.photo.key %>
               <%= cl_image_tag @paint.user.photo.key, class: 'avatar-large', crop: :thumb, gravity: :face %>
             <% else %>
-              <i class="fa-solid fa-user m-auto"></i>
+              <i class="fa-solid fa-user m-auto" style="color: #777777"></i>
             <% end %>
           </div>
           <div class="mx-2">
-            <h5 class="m-0"> <%= "#{@paint.user[:first_name]} #{@paint.user[:last_name]}" %> </h5>
-            <h6 class="m-0">Galeriste depuis le <%= @paint.user[:created_at].strftime("%d/%m/%Y") %></h6>
+            <h4 class="m-0"> <%= "#{@paint.user[:first_name]} #{@paint.user[:last_name]}" %> </h4>
+            <h5 class="m-0">Galeriste depuis le <%= @paint.user[:created_at].strftime("%d/%m/%Y") %></h5>
           </div>
         </div>
 
@@ -60,15 +30,19 @@
         <div class="d-block mt-4">
           <div class="d-block mb-4">
             <h4>Mouvement</h4>
-            <h6><%= @paint.movement %></h6>
+            <h5><%= @paint.movement %></h5>
           </div>
           <div class="d-block mb-4">
             <h4>Année</h4>
-            <h6><%= @paint.year %></h6>
+            <h5><%= @paint.year %></h5>
           </div>
           <div class="d-block mb-4">
             <h4>Technique</h4>
-            <h6><%= @paint.technique %></h6>
+            <h5><%= @paint.technique %></h5>
+          </div>
+          <div class="d-block mb-4">
+            <h4>Description</h4>
+            <h5><%= @paint.description %></h5>
           </div>
 
           <%# le current_user peut destroy la paint si elle lui appartient %>
@@ -81,9 +55,10 @@
         </div>
       </div>
     </div>
-    <div class="col-4 mt-5">
-      <div class="d-block shadow py-3">
-         <% if @paint.user == current_user %>
+
+    <div class="col-10 col-md-5 col-lg-5 col-xl-4 col-xxl-3 mt-5">
+      <div class="d-block shadow">
+          <% if @paint.user == current_user %>
           <div class="container d-flex justify-content-center py-3">
             <div class="row">
               <div class="col">
@@ -97,6 +72,5 @@
         <% end %>
       </div>
     </div>
-  </div>
   </div>
 </div>
