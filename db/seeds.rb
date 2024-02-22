@@ -44,7 +44,7 @@ paintings = [
     movement: "Expressionism",
     technique: "Oil, tempera, and pastel on cardboard",
     year: 1893,
-    url: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg",
+    url: "https://smarthistory.org/wp-content/uploads/2021/12/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpeg",
     price: rand(100..999),
     description: "The Scream is a well-known series of expressionist paintings and prints by Norwegian artist Edvard Munch. The works show a figure with an agonized expression against a landscape with a tumultuous orange sky. The painting's evocative imagery has made it one of the most famous icons of art history."
   },
