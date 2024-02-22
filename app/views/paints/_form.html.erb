@@ -1,11 +1,19 @@
-<%= simple_form_for @paint do |f| %>
-  <%= f.input :name %>
-  <%= f.input :artist %>
-  <%= f.input :movement, :collection => ["Impressionnisme", "Romantisme","Cubisme", "Art abstrait"]%>
-  <%= f.input :technique, :collection => ["Aquarelle", "Peinture à l'huile"] %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :year %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
+<div class="m-auto mt-3 bg-white p-4 rounded shadow-sm" style="width:400px">
+  <% if current_page?(new_paint_path) %>
+    <h3>Ajouter une peinture</h1>
+  <% else %>
+    <h3>Modifier votre peinture</h1>
+  <% end %>
+
+  <%= simple_form_for @paint do |f| %>
+    <%= f.input :name %>
+    <%= f.input :artist %>
+    <%= f.input :movement, :collection => ["Impressionnisme", "Romantisme","Cubisme", "Art abstrait"]%>
+    <%= f.input :technique, :collection => ["Aquarelle", "Peinture à l'huile"] %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :year %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>
