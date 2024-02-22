@@ -1,27 +1,55 @@
-<div class="col-11 mx-auto">
+<div class="col-11 col-md-8 mx-auto">
   <% if @bookings.empty? %>
     <h1 class="text-center">Vous n'avez aucune réservation</h1>
   <% else %>
+    <% booking_total_price = 0 %>
+    <% @bookings.each do |booking| %>
+      <div class="d-flex justify-content-between mb-3 border bg-white" style="height: 150px; border-radius: 20px">
 
-    <div class="cards-grid">
-      <% @bookings.each do |booking| %>
-        <div class="card-paint-index" style="border-radius: 20px">
-          <div style="height: 300px">
+        <%# Image %>
+        <div class="col-3">
             <%= link_to paint_path(booking.paint) do %>
               <% if booking.paint.photo.attached? %>
-                <%= cl_image_tag booking.paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+                <%= cl_image_tag booking.paint.photo.key, crop: :fill, class: 'card-paint-index-img', style: "border-radius: 20px"%>
               <% end %>
             <% end %>
+        </div>
+
+        <%# Nom de la peinture et de l'artiste %>
+        <div class="col-5 col-lg-6 d-flex justify-content-between flex-wrap">
+          <div class="col-12 col-md-8 col-lg-7 d-grid align-content-center">
+            <h4><%= booking.paint.name %></h4>
+            <h5><%= booking.paint.artist %></h5>
           </div>
-          <div class="text-on-card-index">
-            <h2><%= booking.paint.name %></h2>
-            <div class="w-100 space-between">
-              <p class="strong"><%= booking.total_price %> €</p>
-              <%= link_to "Annuler", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-            </div>
+          <div class="col-12 col-md-3 col-lg-4 d-grid align-content-center">
+            <h6>Du : <%= booking.start_date %></h6>
+            <h6>Au : <%= booking.end_date %></h6>
           </div>
         </div>
-      <% end %>
+
+        <%# Prix total %>
+        <div class="col-2 col-lg-1 d-grid align-content-center text-center">
+          <h6><%= booking.total_price %>€</h6>
+        </div>
+
+        <%# Edit & cancel %>
+        <div class="col-1 d-flex flex-wrap align-content-center text-center justify-content-around">
+          <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                                             class: "col-12 col-lg-6 font-icon-link" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+          <a href="/" class="col-12 col-lg-6 font-icon-link"><i class="fa-solid fa-pen"></i></a>
+        </div>
+      </div>
+
+    <% booking_total_price += booking.total_price %>
+    <% end %>
+    <div class="d-flex justify-content-between mb-3" style="height: 100px">
+      <div class="col-8 col-md-9"></div>
+      <div class="col-3 col-md-2 d-grid align-content-center text-center border bg-white" style="border-radius: 20px">
+        <h6>Prix total :</h6>
+        <h6><%= booking_total_price %>€</h6>
+      </div>
     </div>
   <% end %>
 </div>
