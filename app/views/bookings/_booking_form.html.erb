@@ -11,6 +11,7 @@
       <div class="col-6">
         <%= f.input :start_date,
                 as: :string,
+                label: "Date de début",
                 input_html: { data: { controller: "datepicker",
                                       action: "input->booking-form#price",
                                       booking_form_target: "startForm" } } %>
@@ -19,15 +20,11 @@
       <div class="col-6">
         <%= f.input :end_date,
                 as: :string,
+                label: "Date de fin",
                 input_html: { data: { controller: "datepicker",
                                       action: "input->booking-form#price",
                                       booking_form_target: "endForm" } } %>
       </div>
-    </div>
-
-    <%# Bouton réserver %>
-    <div class="d-flex justify-content-center">
-      <%= f.button :submit, 'Réserver', class: 'btn btn-dark text-white w-100' %>
     </div>
 
     <%# Calcul du prix par jours grace a javascript %>
@@ -52,13 +49,18 @@
 
     <%# Prix total %>
     <div class="d-flex justify-content-between">
-      <p>Total</p>
-      <p><span data-booking-form-target="priceTotal"></span>€</p>
+      <p><strong>Total</strong></p>
+      <p><strong><span data-booking-form-target="priceTotal"></span>€</strong></p>
     </div>
 
     <%# Fait passer le prix total dans @booking.total_price grace a JS%>
     <div class="d-none">
       <%= f.input :total_price, input_html: { data: { booking_form_target: "priceValue" } } %>
+    </div>
+
+    <%# Bouton réserver %>
+    <div class="d-flex justify-content-center">
+      <%= f.button :submit, 'Réserver', class: 'btn btn-dark text-white w-100' %>
     </div>
   <% end %>
 </div>
