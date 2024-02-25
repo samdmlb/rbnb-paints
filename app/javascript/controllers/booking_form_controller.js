@@ -6,16 +6,16 @@ export default class extends Controller {
                     "priceResult", "priceReduction", "priceReductionDiv", "priceValue"]
 
   connect() {
-    this.startFormTarget.value = new Date().toISOString().split('T')[0]
-    this.endFormTarget.value = new Date().toISOString().split('T')[0]
+    this.startFormTarget.value = new Date().toISOString().split('T')[0].split("-").reverse().join("-")
+    this.endFormTarget.value = new Date().toISOString().split('T')[0].split("-").reverse().join("-")
     this.price()
   }
 
   price() {
     const endDateValue = this.endFormTarget.value
     const startDateValue = this.startFormTarget.value
-    const startDate = new Date(startDateValue.split("-"))
-    const endDate = new Date(endDateValue.split("-"))
+    const startDate = new Date(startDateValue.split("-").reverse())
+    const endDate = new Date(endDateValue.split("-").reverse())
     const differenceDate = Math.ceil(((endDate - startDate) / 86400000) + 1)
 
     const numberDays = this.numberOfDaysTarget
