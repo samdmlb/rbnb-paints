@@ -6,8 +6,6 @@ export default class extends Controller {
                     "priceResult", "priceReduction", "priceReductionDiv", "priceValue"]
 
   connect() {
-    this.startFormTarget.value = new Date().toISOString().split('T')[0].split("-").reverse().join("-")
-    this.endFormTarget.value = new Date().toISOString().split('T')[0].split("-").reverse().join("-")
     this.price()
   }
 
