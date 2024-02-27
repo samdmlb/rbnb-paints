@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
 
+
 // Connects to data-controller="datepicker"
 export default class extends Controller {
   static targets = ["startDate", "endDate"];
@@ -16,13 +17,13 @@ export default class extends Controller {
     flatpickr(this.startDateTarget, {
       dateFormat: "d-m-Y",
       disable: disabledDates,
-      minDate: "today"
+      minDate: "today",
     });
 
     flatpickr(this.endDateTarget, {
       dateFormat: "d-m-Y",
       disable: disabledDates,
-      minDate: "today"
+      minDate: "today",
     });
   }
 }
