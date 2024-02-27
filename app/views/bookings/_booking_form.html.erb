@@ -1,4 +1,4 @@
-<div class="card rounded p-4 bg-white" data-controller="booking-form">
+<div class="card rounded p-4 bg-white" data-controller="booking-form datepicker" data-datepicker-reserved-dates="<%= @reserved_dates.to_json %>" >
   <%= simple_form_for [@paint, @booking] do |f| %>
 
     <%# Prix par jour %>
@@ -12,8 +12,8 @@
         <%= f.input :start_date,
                 as: :string,
                 label: "Date de début",
-                input_html: { data: { controller: "datepicker",
-                                      action: "input->booking-form#price",
+                input_html: { data: { action: "input->booking-form#price",
+                                      datepicker_target: "startDate",
                                       booking_form_target: "startForm" } } %>
       </div>
 
@@ -21,8 +21,8 @@
         <%= f.input :end_date,
                 as: :string,
                 label: "Date de fin",
-                input_html: { data: { controller: "datepicker",
-                                      action: "input->booking-form#price",
+                input_html: { data: { action: "input->booking-form#price",
+                                      datepicker_target: "endDate",
                                       booking_form_target: "endForm" } } %>
       </div>
     </div>
