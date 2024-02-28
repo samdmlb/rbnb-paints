@@ -16,6 +16,7 @@
         <%= link_to "Tableaux", paints_path, class: "btn trois-button rounded-pill px-4 #{'active' if current_page?(paints_path)}" %>
         <%= link_to "Mes tableaux", my_paints_paints_path, class: "btn trois-button rounded-pill px-4 mx-3 #{'active' if current_page?(my_paints_paints_path)}" %>
         <%= link_to "Mes réservations", bookings_path, class: "btn trois-button rounded-pill px-4 #{'active' if current_page?(bookings_path)}" %>
+         <%= button_to "Mes favoris", favorites_path, :class => "btn trois-button rounded-pill px-4#{' active' if current_page?(favorites_path)}", :method => :get %>
       </div>
 
       <div>

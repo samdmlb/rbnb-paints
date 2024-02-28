@@ -1,0 +1,51 @@
+
+<%# <div data-controller="favorites"> %>
+
+<div class="col-11 mx-auto">
+  <div class="cards-grid">
+
+    <% if @favorites.empty? %>
+      <h1 class="text-center">Vous n'avez aucun favori</h1>
+    <% else %>
+
+
+
+      <% @favorites.each do |favorite| %>
+
+        <div class="card-paint-index"
+        style="border-radius: 20px">
+
+        <%# Bouton Trash-ban %>
+        <div class="col-1 d-flex flex-wrap align-content-center text-center justify-content-around">
+          <%= link_to destroy_from_favorites_favorite_path(favorite), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                                             class: "col-12 col-lg-6 font-icon-link" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+
+          <div class="favorite-item" data-controller="favorites">
+            <%= link_to favorite.paint.name, paint_path(favorite.paint) %>
+            <p><%= favorite.paint.year %></p>
+            <p><%= favorite.paint.artist %></p>
+            <p><%= favorite.paint.movement %></p>
+            <p><%= favorite.paint.price %> € par jour</p>
+            <%# retirer à la fin  %>
+            <p><%= favorite.paint.id %></p>
+            <p><%= favorite.id %></p>
+            <%# FIN - retirer à la fin  %>
+
+            <%# <div class="remove-button"
+            data-action="focusin->favorites#removeColorFavoriteButton">
+              <%= link_to "Remove", favorite_path(favorite),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "col-12 col-lg-6 font-icon-link" %>
+            </div>
+
+          </div>
+
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
