@@ -16,22 +16,48 @@
         style="border-radius: 20px">
 
         <%# Bouton Trash-ban %>
-        <div class="col-1 d-flex flex-wrap align-content-center text-center justify-content-around">
+        <div class="trash-ban">
           <%= link_to destroy_from_favorites_favorite_path(favorite), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
                                              class: "col-12 col-lg-6 font-icon-link" do %>
-            <i class="fa-solid fa-trash"></i>
+            <%# <i class="fa-solid fa-trash"></i> %>
+            <i class="fa-solid fa-trash" style="color: #fcfcfd;"></i>
           <% end %>
         </div>
 
-          <div class="favorite-item" data-controller="favorites">
-            <%= link_to favorite.paint.name, paint_path(favorite.paint) %>
-            <p><%= favorite.paint.year %></p>
-            <p><%= favorite.paint.artist %></p>
-            <p><%= favorite.paint.movement %></p>
-            <p><%= favorite.paint.price %> € par jour</p>
-            <%# retirer à la fin  %>
-            <p><%= favorite.paint.id %></p>
-            <p><%= favorite.id %></p>
+            <%# div de l'image %>
+        <div style="height: 300px">
+          <%= link_to paint_path(favorite.paint) do %>
+            <% if favorite.paint.photo.attached? %>
+              <%= cl_image_tag favorite.paint.photo.key, crop: :fill, class: 'card-paint-index-img' %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="text-on-card-index"
+        class="favorite-item" data-controller="favorites">
+
+          <%# première ligne de la card %>
+          <div class="w-100 space-beetween">
+            <h2><%= favorite.paint.name %></h2>
+            <h2><%= favorite.paint.year %></h2>
+          </div>
+
+          <div >
+            <h3><%= favorite.paint.artist %></h3>
+            <p><i><%= favorite.paint.movement %></i></p>
+
+          <%# dernière ligne de la card %>
+          <div class="w-100 space-beetween">
+            <p class="strong"><%= favorite.paint.price %> € par jour</p>
+            <%# <p>Disponible</p> %>
+          </div>
+
+
+
+
+            <%# retirer à la fin pour la prod - conserver pour tests ultérieurs %>
+            <%# <p><%= favorite.paint.id %>
+            <%# <p><%= favorite.id %>
             <%# FIN - retirer à la fin  %>
 
             <%# <div class="remove-button"
