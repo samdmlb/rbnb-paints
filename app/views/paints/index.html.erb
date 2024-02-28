@@ -1,10 +1,33 @@
 <%# <div class="container d-flex flex-wrap"> %>
 <div class="col-11 mx-auto">
-  <div class="cards-grid">
+  <div class="cards-grid"
+  >
 
     <% @paints.each do |paint| %>
 
-      <div class="card-paint-index" style="border-radius: 20px">
+      <div class="card-paint-index"
+      id="favorites"
+      data-controller="favorites"
+      data-user-id="<%= current_user.id %>"
+      data-favorited-by="<%= paint.favorited_by.pluck(:id).to_json %>"
+      style="border-radius: 20px">
+
+        <!-- Icône de favori -->
+        <% if favorite_exists_for_paint?(paint) %>
+          <%# <h1>verif fav existe</h1> %>
+          <a class="favorite-button favorite-active"
+              data-favorites-target="favoriteButton"
+              data-action="click->favorites#isFavorite"
+              data-paint-id="<%= paint.id %>">
+          </a>
+        <% else %>
+          <%# <h1>verif fav n'existe pas</h1> %>
+          <a class="favorite-button favorite-inactive"
+              data-favorites-target="favoriteButton"
+              data-action="click->favorites#isFavorite"
+              data-paint-id="<%= paint.id %>">
+          </a>
+        <% end %>
 
         <%# div de l'image %>
         <div style="height: 300px">

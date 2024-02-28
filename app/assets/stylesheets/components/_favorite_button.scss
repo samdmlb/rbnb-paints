@@ -1,0 +1,24 @@
+.favorite-button {
+  padding: 16px 19px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  // background-color: yellow;
+}
+
+.favorite-active {
+  background-image: url('/assets/Like-on3_rt.png');
+}
+
+.favorite-inactive {
+  background-image: url('/assets/Like-off2_rt.png');
+}
+
+
+// .icon-dark {
+//   color: $darker;
+// }
+
+// .icon-red {
+//   color: #ff385c;
+// }

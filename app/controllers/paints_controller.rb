@@ -47,4 +47,5 @@ class PaintsController < ApplicationController
   def set_paint
     @paint = Paint.find(params[:id])
   end
+
 end
