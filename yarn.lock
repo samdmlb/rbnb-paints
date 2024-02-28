@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+"sweetalert2@^11.10.5":
+  "integrity" "sha512-q9eE3EKhMcpIDU/Xcz7z5lk8axCGkgxwK47gXGrrfncnBJWxHPPHnBVAjfsVXcTt8Yi8U6HNEcBRSu+qGeyFdA=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.10.5.tgz"
+  "version" "11.10.5"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_18_172044) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_26_232401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_18_172044) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "paint_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paint_id"], name: "index_favorites_on_paint_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "paints", force: :cascade do |t|
     t.string "name"
     t.string "artist"
@@ -86,5 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_18_172044) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "paints"
   add_foreign_key "bookings", "users"
+  add_foreign_key "favorites", "paints"
+  add_foreign_key "favorites", "users"
   add_foreign_key "paints", "users"
 end

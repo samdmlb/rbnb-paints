@@ -8,6 +8,8 @@ class PaintsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @bookings = Booking.where(paint_id: @paint.id)
+    @reserved_dates = @bookings.map { |booking| { from: booking.start_date.strftime("%d-%m-%Y"), to: booking.end_date.strftime("%d-%m-%Y") } }
   end
 
   def new
@@ -47,4 +49,5 @@ class PaintsController < ApplicationController
   def set_paint
     @paint = Paint.find(params[:id])
   end
+
 end

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>RbnbPaints</title>
+    <link rel="icon" type="image/png" href="Logo3d.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,13 +11,14 @@
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= favicon_link_tag 'favicon.png' %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
   <%= render "shared/navbar" %>
   <div class="border-bottom fixed-top bg-light-subtle py-2 search-bar-mobile">
     <%= render "shared/search_bar" %>
-  </div>>
+  </div>
   <div class="body-responsive">
     <%= yield %>
   </div>
